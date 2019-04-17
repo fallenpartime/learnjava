@@ -68,6 +68,8 @@ public class AppleFarmer {
             }
         });
         inventory.sort((Apple o1, Apple o2) -> o2.getWeight().compareTo(o1.getWeight()));
+        // TODO: 方法引用
+        inventory.sort(Comparator.comparing(Apple::getWeight));
         // Lambda
 //        System.out.println(filterApples(inventory, (Apple apple) -> apple.getWeight() > 150));
 //        System.out.println(filterApples(inventory, (Apple apple) -> "green".equals(apple.getColor())));

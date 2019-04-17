@@ -51,8 +51,8 @@ public class AppleFarmer {
                 new Apple("green", 110),
                 new Apple("green", 140),
                 new Apple("green", 190));
-//        System.out.println(AppleFarmer.filterApples(inventory, new AppleHeavyWeightPredicate()));
-//        System.out.println(AppleFarmer.filterApples(inventory, new ApplyGreenColorPredicate()));
+//        System.out.println(filterApples(inventory, new AppleHeavyWeightPredicate()));
+//        System.out.println(filterApples(inventory, new ApplyGreenColorPredicate()));
         // 匿名类
         System.out.println(filterApples(inventory, new ApplePredicate() {
             @Override
@@ -69,17 +69,17 @@ public class AppleFarmer {
         });
         inventory.sort((Apple o1, Apple o2) -> o2.getWeight().compareTo(o1.getWeight()));
         // Lambda
-//        System.out.println(AppleFarmer.filterApples(inventory, (Apple apple) -> apple.getWeight() > 150));
-//        System.out.println(AppleFarmer.filterApples(inventory, (Apple apple) -> "green".equals(apple.getColor())));
+//        System.out.println(filterApples(inventory, (Apple apple) -> apple.getWeight() > 150));
+//        System.out.println(filterApples(inventory, (Apple apple) -> "green".equals(apple.getColor())));
 //        System.out.println(filter(inventory, (Apple apple) -> apple.getWeight() > 150));
         // stream
         // 顺序
-//        List<Apple> heavyApples = inventory.stream().filter((Apple apple) -> apple.getWeight() > 150).collect(Collectors.toList());
-//        System.out.println(heavyApples);
-//        // 并行
-//        List<Apple> parallelHeavyApples = inventory.parallelStream().filter((Apple apple) -> apple.getWeight() > 150).collect(Collectors.toList());
-//        System.out.println(parallelHeavyApples);
-//        prettyPrintApple(inventory, new AppleFancyFormatter());
+        List<Apple> heavyApples = inventory.stream().filter((Apple apple) -> apple.getWeight() > 150).collect(Collectors.toList());
+        System.out.println(heavyApples);
+        // 并行
+        List<Apple> parallelHeavyApples = inventory.parallelStream().filter((Apple apple) -> apple.getWeight() > 150).collect(Collectors.toList());
+        System.out.println(parallelHeavyApples);
+        prettyPrintApple(inventory, new AppleFancyFormatter());
         prettyPrintApple(inventory, new AppleSimpleFormatter());
     }
 }
